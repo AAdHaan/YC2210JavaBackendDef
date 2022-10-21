@@ -12,7 +12,7 @@ public class Question {
 	long id;
 	
 	String questionText;
-	String[] possibleAwnsers;
+	String[] possibleAnswers;
 	
 	
 	public long getId() {
@@ -27,11 +27,11 @@ public class Question {
 	public void setQuestionText(String questionText) {
 		this.questionText = questionText;
 	}
-	public String[] getPossibleAwnsers() {
-		return possibleAwnsers;
+	public String[] getPossibleAnswers() {
+		return possibleAnswers;
 	}
-	public void setPossibleAwnsers(String[] possibleAwnsers) {
-		this.possibleAwnsers = possibleAwnsers;
+	public void setPossibleAnswers(String[] possibleAnswers) {
+		this.possibleAnswers = possibleAnswers;
 	}
 	
 
