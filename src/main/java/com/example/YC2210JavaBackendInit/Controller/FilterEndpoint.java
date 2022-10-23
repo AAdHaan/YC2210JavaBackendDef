@@ -4,18 +4,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.YC2210JavaBackendInit.persist.QuestionService;
+import com.example.YC2210JavaBackendInit.persist.FilterService;
 import com.example.YC2210JavaBackendInit.Filter;
 
 
 @RestController
-public class QuestionEndpoint {
+public class FilterEndpoint {
 	@Autowired
-	QuestionService service;
+	FilterService service;
 	
-	@GetMapping("hoi")
-	public String beginAvontuur() {
-		System.out.println("we're going on an adventure");
-		return "wat een avontuur";
+	@GetMapping("hoi2")
+	public String testTest() {
+		System.out.println("we're going on an adventure22");
+		return "wat een avontuur22";
 	}
 }
