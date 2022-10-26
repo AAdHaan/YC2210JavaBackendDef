@@ -6,32 +6,31 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Question {
+public class QAnswers {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	long id;
 	
-	String questionText;
-	int orderNR;
+	String QAnswerText;
+	int questionID;
 	
 	public long getId() {
 		return id;
 	}
 	public void setId(long id) {
 		this.id = id;
-	}	
-	public String getQuestionText() {
-		return questionText;
 	}
-	public void setQuestionText(String questionText) {
-		this.questionText = questionText;
+	public String getQAnswerText() {
+		return QAnswerText;
 	}
-	public int getOrderNR() {
-		return orderNR;
+	public void setQAnswerText(String qAnswerText) {
+		QAnswerText = qAnswerText;
 	}
-	public void setOrderNR(int orderNR) {
-		this.orderNR = orderNR;
+	public int getQuestionID() {
+		return questionID;
+	}
+	public void setQuestionID(int questionID) {
+		this.questionID = questionID;
 	}
 
-	
 }
