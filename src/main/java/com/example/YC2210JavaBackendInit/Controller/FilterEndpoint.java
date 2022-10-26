@@ -13,7 +13,7 @@ public class FilterEndpoint {
 	@Autowired
 	FilterService service;
 	
-	@GetMapping("hoi2")
+	@GetMapping("Filter")
 	public String testTest() {
 		System.out.println("we're going on an adventure22");
 		return "wat een avontuur22";
