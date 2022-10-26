@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class QAnswers {
@@ -12,7 +13,8 @@ public class QAnswers {
 	long id;
 	
 	String QAnswerText;
-	int questionID;
+	@ManyToOne
+	Question questionID;
 	
 	public long getId() {
 		return id;
@@ -26,10 +28,10 @@ public class QAnswers {
 	public void setQAnswerText(String qAnswerText) {
 		QAnswerText = qAnswerText;
 	}
-	public int getQuestionID() {
+	public Question getQuestionID() {
 		return questionID;
 	}
-	public void setQuestionID(int questionID) {
+	public void setQuestionID(Question questionID) {
 		this.questionID = questionID;
 	}
 
