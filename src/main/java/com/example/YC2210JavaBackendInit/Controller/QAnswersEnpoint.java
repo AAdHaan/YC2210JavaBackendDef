@@ -23,9 +23,9 @@ public class QAnswersEnpoint {
 	@PostMapping("QAnswers/{QuestionID}")
 	public void postQuestion(@RequestBody QAnswers qanswer, @PathVariable("QuestionID") long questionID) {
 		service.SaveQAnswer(qanswer, questionID);
-		System.out.println(qanswer.getId() +" "+ qanswer.getQAnswerText() +" "+ qanswer.getQuestionID());
+		System.out.println(qanswer.getId() +" "+ qanswer.getQAnswerText() +" "+ qanswer.getQuestion());
 	}
-		
+
 	@GetMapping(value = "QAnswers/{id}")
 	public Iterable<QAnswers> getQuestion(@PathVariable("id") long id) {
 		Iterable<QAnswers> qanswers = service.getQAnswer(id);

@@ -17,7 +17,7 @@ public class QAnswersService {
 	public void SaveQAnswer(QAnswers qAnswers, long questionID) {
 		
 		Question q = qrepo.findById(questionID).get();
-		qAnswers.setQuestionID(q);
+		qAnswers.setQuestion(q);
 		repo.save(qAnswers);
 	}
 	
@@ -26,11 +26,11 @@ public class QAnswersService {
 		repo.findById(id);
 		
 		if(qanswers != null) {
-			System.out.println("anwsers gevonden");
+			System.out.println("answers gevonden");
 		return qanswers;
 		}
 
-		System.out.println("anwsers niet gevonden");
+		System.out.println("answers niet gevonden");
 		return null;
 	}
 	

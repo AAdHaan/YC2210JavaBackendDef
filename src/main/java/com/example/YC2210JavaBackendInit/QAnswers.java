@@ -14,7 +14,7 @@ public class QAnswers {
 	
 	String QAnswerText;
 	@ManyToOne
-	Question questionID;
+	Question question;
 	
 	public long getId() {
 		return id;
@@ -28,11 +28,11 @@ public class QAnswers {
 	public void setQAnswerText(String qAnswerText) {
 		QAnswerText = qAnswerText;
 	}
-	public Question getQuestionID() {
-		return questionID;
+	public Question getQuestion() {
+		return question;
 	}
-	public void setQuestionID(Question questionID) {
-		this.questionID = questionID;
+	public void setQuestion(Question question) {
+		this.question = question;
 	}
 
 }

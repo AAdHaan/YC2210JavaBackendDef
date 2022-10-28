@@ -17,7 +17,7 @@ import com.example.YC2210JavaBackendInit.User;
 public class QuestionEndpoint {
 	@Autowired
 	QuestionService service;
-	
+
 	@PostMapping("Question")
 	public void postQuestion(@RequestBody Question question) {
 		service.SaveQuestion(question);
