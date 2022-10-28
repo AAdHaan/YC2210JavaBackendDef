@@ -15,7 +15,6 @@ public class QAnswersService {
 	QuestionRepository qrepo;
 	
 	public void SaveQAnswer(QAnswers qAnswers, long questionID) {
-		
 		Question q = qrepo.findById(questionID).get();
 		qAnswers.setQuestion(q);
 		repo.save(qAnswers);
@@ -33,11 +32,4 @@ public class QAnswersService {
 		System.out.println("answers niet gevonden");
 		return null;
 	}
-	
-//	public interface CustomerRepository extends CrudRepository<Customer, Long> {
-//
-//		  List<Customer> findByLastName(String lastName);
-//
-//		  Customer findById(long id);
-//		}
 }

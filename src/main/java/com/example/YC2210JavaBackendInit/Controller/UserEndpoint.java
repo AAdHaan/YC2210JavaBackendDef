@@ -17,17 +17,16 @@ import com.example.YC2210JavaBackendInit.User;
 public class UserEndpoint {
 	@Autowired
 	UserService service;
-	
+
 	@GetMapping("User")
-	public String beginAvontuur() {
+	public String getUser() {
 		System.out.println("we're going on an adventure");
 		return "wat een avontuur";
 	}
-	
+
 	@PostMapping("User")
 	public void postUser(@RequestBody User user) {
 		service.SaveUser(user);
 		System.out.println(user.getUsername() +" "+ user.getEmail() +" "+ user.getHashedPassword());
 	}
-	
 }

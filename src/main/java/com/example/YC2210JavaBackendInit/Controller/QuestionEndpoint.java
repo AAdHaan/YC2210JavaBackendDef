@@ -30,5 +30,4 @@ public class QuestionEndpoint {
 		System.out.println(question.getQuestionText() +" "+ question.getOrderNR() +" "+ question.getId());
 		return question.getQuestionText();
 	}
-	 
 }

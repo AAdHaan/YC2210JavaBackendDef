@@ -13,5 +13,4 @@ public class UserService {
 	public void SaveUser(User user) {
 		repo.save(user);
 	}
-	
 }
