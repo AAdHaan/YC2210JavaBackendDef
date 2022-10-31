@@ -27,7 +27,6 @@ public class UserEndpoint {
 	@PostMapping("User")
 	public void postUser(@RequestBody User user) {
 		service.SaveUser(user);
-		System.out.println(user.getUsername() +" "+ user.getEmail() +" "+ user.getHashedPassword());
+		System.out.println(user.getUsername() +" "+ user.getEmail() +" "+ user.getPassword());
 	}
-	
 }

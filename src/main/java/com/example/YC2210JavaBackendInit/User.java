@@ -12,7 +12,7 @@ public class User {
 	long id;
 	
 	String username;
-	String hashedPassword;
+	String password;
 	String email;
 	
 	public long getId() {
@@ -27,11 +27,11 @@ public class User {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getHashedPassword() {
-		return hashedPassword;
+	public String getPassword() {
+		return password;
 	}
-	public void setHashedPassword(String password) {
-		this.hashedPassword = password;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getEmail() {
 		return email;
