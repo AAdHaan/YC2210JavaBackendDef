@@ -10,7 +10,7 @@ public class Question {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	long id;
-	
+
 	String questionText;
 	int orderNR;
 	
