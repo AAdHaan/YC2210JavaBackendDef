@@ -28,10 +28,10 @@ public class QAnswers {
 	public void setQAnswerText(String qAnswerText) {
 		QAnswerText = qAnswerText;
 	}
-	public Question getQuestion() {
+	public Question getQuestionText() {
 		return question;
 	}
-	public void setQuestion(Question question) {
+	public void setQuestionText(Question question) {
 		this.question = question;
 	}
 }

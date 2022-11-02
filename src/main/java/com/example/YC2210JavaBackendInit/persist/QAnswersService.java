@@ -16,7 +16,7 @@ public class QAnswersService {
 	
 	public void SaveQAnswer(QAnswers qAnswers, long questionID) {
 		Question q = qrepo.findById(questionID).get();
-		qAnswers.setQuestion(q);
+		qAnswers.setQuestionText(q);
 		repo.save(qAnswers);
 	}
 	
