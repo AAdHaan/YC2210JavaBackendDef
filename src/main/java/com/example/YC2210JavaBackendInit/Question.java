@@ -32,6 +32,4 @@ public class Question {
 	public void setOrderNR(int orderNR) {
 		this.orderNR = orderNR;
 	}
-
-	
 }

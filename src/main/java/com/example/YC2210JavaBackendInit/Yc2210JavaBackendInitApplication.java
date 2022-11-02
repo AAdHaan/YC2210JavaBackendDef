@@ -9,5 +9,4 @@ public class Yc2210JavaBackendInitApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(Yc2210JavaBackendInitApplication.class, args);
 	}
-
 }

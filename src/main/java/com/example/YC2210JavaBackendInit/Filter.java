@@ -11,7 +11,7 @@ public class Filter {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	long id;
 	
-	String[] possibleFilters;
+	String FilterText;
 
 	public long getId() {
 		return id;
@@ -21,12 +21,11 @@ public class Filter {
 		this.id = id;
 	}
 
-	public String[] getPossibleFilters() {
-		return possibleFilters;
+	public String getFilterText() {
+		return FilterText;
 	}
 
-	public void setPossibleFilters(String[] possibleFilters) {
-		this.possibleFilters = possibleFilters;
-	}	
-
+	public void setFilterText(String FilterText) {
+		this.FilterText = FilterText;
+	}
 }

@@ -39,5 +39,4 @@ public class UserService {
 //    private void sendVerificationEmail(User user, String siteURL) {
 //        
 //    }
-	
 }
