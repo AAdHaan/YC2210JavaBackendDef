@@ -19,11 +19,16 @@ import com.example.YC2210JavaBackendInit.User;
 public class QAnswersEndpoint {
 	@Autowired
 	QAnswersService service;
-	
-	@PostMapping("QAnswers/{QuestionID}")
-	public void postQuestion(@RequestBody QAnswers qanswer, @PathVariable("QuestionID") long questionID) {
-		service.SaveQAnswer(qanswer, questionID);
-		//System.out.println(qanswer.getId() +" "+ qanswer.getQAnswerText() +" "+ qanswer.getQuestionText());
+
+//	@PostMapping("QAnswers/{QuestionID}")
+//	public void postQuestion(@RequestBody QAnswers qanswer, @PathVariable("QuestionID") long questionID) {
+//		service.SaveQAnswer(qanswer, questionID);
+//		//System.out.println(qanswer.getId() +" "+ qanswer.getQAnswerText() +" "+ qanswer.getQuestionText());
+//	}
+
+	@PostMapping(value = "QAnswers/{questionId}")
+	public void postQAnswer(@RequestBody QAnswers qa, @PathVariable ("questionId") long id){
+		service.saveQAnswer(qa, id);
 	}
 
 	@GetMapping(value = "QAnswers/{id}")

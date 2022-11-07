@@ -14,6 +14,15 @@ public class Question {
 	String text;
 	@Column(unique = true, nullable = false)
 	int orderNR;
+
+	public List<QAnswers> getQanswers() {
+		return qanswers;
+	}
+
+	public void setQanswers(List<QAnswers> qanswers) {
+		this.qanswers = qanswers;
+	}
+
 	@OneToMany
 	List<QAnswers> qanswers = new ArrayList<QAnswers>();
 	

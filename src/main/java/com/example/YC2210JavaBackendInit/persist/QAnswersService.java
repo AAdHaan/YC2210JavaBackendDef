@@ -33,7 +33,7 @@ public class QAnswersService {
 		return null;
 	}
 
-	public void voegtoe(QAnswers qa, long id) {
+	public void saveQAnswer(QAnswers qa, long id) {
 		QAnswers temp = repo.save(qa);
 		Question qtemp = qrepo.findById(id).get();
 		qtemp.addAnswer(temp);
