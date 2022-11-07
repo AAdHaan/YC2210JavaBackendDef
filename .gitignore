@@ -22,7 +22,6 @@ bin/
 *.iml
 *.ipr
 .mvn/
-*.properties
 
 ### NetBeans ###
 /nbproject/private/
