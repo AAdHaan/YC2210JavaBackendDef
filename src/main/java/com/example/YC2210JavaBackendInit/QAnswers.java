@@ -13,8 +13,8 @@ public class QAnswers {
 	long id;
 	
 	String QAnswerText;
-	@ManyToOne
-	Question question;
+	//@ManyToOne
+	//Question question;
 	
 	public long getId() {
 		return id;
@@ -28,10 +28,10 @@ public class QAnswers {
 	public void setQAnswerText(String qAnswerText) {
 		QAnswerText = qAnswerText;
 	}
-	public Question getQuestionText() {
-		return question;
-	}
-	public void setQuestionText(Question question) {
-		this.question = question;
-	}
+//	public Question getQuestionText() {
+//		return question;
+//	}
+//	public void setQuestionText(Question question) {
+//		this.question = question;
+//	}
 }
