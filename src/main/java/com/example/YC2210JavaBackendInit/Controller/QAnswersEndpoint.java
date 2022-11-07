@@ -16,7 +16,7 @@ import com.example.YC2210JavaBackendInit.User;
 
 
 @RestController
-public class QAnswersEnpoint {
+public class QAnswersEndpoint {
 	@Autowired
 	QAnswersService service;
 	
