@@ -1,5 +1,6 @@
 package com.example.YC2210JavaBackendInit;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,7 +12,9 @@ public class Question {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	long id;
 	
+	@Column(nullable = false)
 	String questionText;
+	@Column(unique = true, nullable = false)
 	int orderNR;
 	
 	public long getId() {

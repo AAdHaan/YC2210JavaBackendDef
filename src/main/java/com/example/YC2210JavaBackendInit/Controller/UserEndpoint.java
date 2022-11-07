@@ -30,16 +30,12 @@ public class UserEndpoint {
 		if(service.getUser(id).isPresent()) {
 			return service.getUser(id);
 		}else {
+			System.out.println("help geen user");
 			throw new UserDoesntExistException("User doesn't exsist in the database.");
 		}
 		
 	}
-//	@GetMapping(value = "Question/{id}")
-//	public String getQuestion(@PathVariable("id") long id) {
-//		Question question = service.getQuestion(id);
-//		System.out.println(question.getQuestionText() +" "+ question.getOrderNR() +" "+ question.getId());
-//		return question.getQuestionText();
-//	}
+
 	@PostMapping("User")
 	public void postUser(@RequestBody User user) throws EmailTooLongException, UsernameTooLongException {
 		try {
