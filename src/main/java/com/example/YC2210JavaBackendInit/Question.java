@@ -9,7 +9,7 @@ public class Question {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	long id;
-	String questionText;
+	String text;
 	int orderNR;
 	@OneToMany
 	List<QAnswers> answers = new ArrayList<QAnswers>();
@@ -22,11 +22,11 @@ public class Question {
 	public void setId(long id) {
 		this.id = id;
 	}	
-	public String getQuestionText() {
-		return questionText;
+	public String getText() {
+		return text;
 	}
-	public void setQuestionText(String questionText) {
-		this.questionText = questionText;
+	public void setText(String text) {
+		this.text = text;
 	}
 	public int getOrderNR() {
 		return orderNR;

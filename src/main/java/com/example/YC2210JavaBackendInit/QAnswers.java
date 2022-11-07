@@ -8,10 +8,7 @@ public class QAnswers {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	long id;
 	
-	String QAnswerText;
-//	@ManyToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name="questionId")
-//	Question question;
+	String text;
 	
 	public long getId() {
 		return id;
@@ -19,16 +16,10 @@ public class QAnswers {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getQAnswerText() {
-		return QAnswerText;
+	public String getText() {
+		return text;
 	}
-	public void setQAnswerText(String qAnswerText) {
-		QAnswerText = qAnswerText;
+	public void setText(String text) {
+		this.text = text;
 	}
-//	public Question getQuestionText() {
-//		return question;
-//	}
-//	public void setQuestionText(Question question) {
-//		this.question = question;
-//	}
 }
