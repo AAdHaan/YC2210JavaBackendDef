@@ -1,10 +1,8 @@
 package com.example.YC2210JavaBackendInit;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Question {
@@ -13,9 +11,11 @@ public class Question {
 	long id;
 	
 	@Column(nullable = false)
-	String questionText;
+	String text;
 	@Column(unique = true, nullable = false)
 	int orderNR;
+	@OneToMany
+	List<QAnswers> qanswers = new ArrayList<QAnswers>();
 	
 	public long getId() {
 		return id;
@@ -23,16 +23,20 @@ public class Question {
 	public void setId(long id) {
 		this.id = id;
 	}	
-	public String getQuestionText() {
-		return questionText;
+	public String getText() {
+		return text;
 	}
-	public void setQuestionText(String questionText) {
-		this.questionText = questionText;
+	public void setText(String text) {
+		this.text = text;
 	}
 	public int getOrderNR() {
 		return orderNR;
 	}
 	public void setOrderNR(int orderNR) {
 		this.orderNR = orderNR;
+	}
+
+	public void addAnswer(QAnswers temp) {
+		qanswers.add(temp);
 	}
 }
