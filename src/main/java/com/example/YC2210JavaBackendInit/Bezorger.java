@@ -1,19 +1,19 @@
-package com.example.YC2210JavaBackendInit.Controller;
-
-import java.time.LocalDate;
+package com.example.YC2210JavaBackendInit;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class OefenEntiteit {
+public class Bezorger {
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	long id;
 	
 	String naam;
 	int leeftijd;
-	LocalDate geboortedatum;
-	String gender;
+	Boolean beschikbaar;
 	public long getId() {
 		return id;
 	}
@@ -32,22 +32,13 @@ public class OefenEntiteit {
 	public void setLeeftijd(int leeftijd) {
 		this.leeftijd = leeftijd;
 	}
-	public LocalDate getGeboortedatum() {
-		return geboortedatum;
+	public Boolean getBeschikbaar() {
+		return beschikbaar;
 	}
-	public void setGeboortedatum(LocalDate geboortedatum) {
-		this.geboortedatum = geboortedatum;
-	}
-	public String getGender() {
-		return gender;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setBeschikbaar(Boolean beschikbaar) {
+		this.beschikbaar = beschikbaar;
 	}
 
-	
-	
-	
 	
 	
 }
