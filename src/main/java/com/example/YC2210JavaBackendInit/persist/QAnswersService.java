@@ -11,12 +11,12 @@ import com.example.YC2210JavaBackendInit.Question;
 public class QAnswersService {
 	@Autowired
 	QAnswersRepository repo;
-	@Autowired 
+	@Autowired
 	QuestionRepository qrepo;
 	
 	public void SaveQAnswer(QAnswers qAnswers, long questionID) {
 		Question q = qrepo.findById(questionID).get();
-		qAnswers.setQuestionText(q);
+		//qAnswers.setQuestionText(q);
 		repo.save(qAnswers);
 	}
 	
@@ -31,5 +31,12 @@ public class QAnswersService {
 
 		System.out.println("answers niet gevonden");
 		return null;
+	}
+
+	public void voegtoe(QAnswers qa, long id) {
+		QAnswers temp = repo.save(qa);
+		Question qtemp = qrepo.findById(id).get();
+		qtemp.addAnswer(temp);
+		qrepo.save(qtemp);
 	}
 }

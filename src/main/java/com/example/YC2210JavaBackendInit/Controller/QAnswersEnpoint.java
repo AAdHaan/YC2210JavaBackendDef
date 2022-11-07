@@ -23,7 +23,7 @@ public class QAnswersEnpoint {
 	@PostMapping("QAnswers/{QuestionID}")
 	public void postQuestion(@RequestBody QAnswers qanswer, @PathVariable("QuestionID") long questionID) {
 		service.SaveQAnswer(qanswer, questionID);
-		System.out.println(qanswer.getId() +" "+ qanswer.getQAnswerText() +" "+ qanswer.getQuestion());
+		//System.out.println(qanswer.getId() +" "+ qanswer.getQAnswerText() +" "+ qanswer.getQuestion());
 	}
 
 	@GetMapping(value = "QAnswers/{id}")
@@ -31,5 +31,10 @@ public class QAnswersEnpoint {
 		Iterable<QAnswers> qanswers = service.getQAnswer(id);
 		//System.out.println(qanswer.getId() +" "+ qanswer.getQAnswerText() +" "+ qanswer.getQuestionID());		
 		return qanswers;
+	}
+
+	@PostMapping(value = "QAnswers/f/{id}")
+	public void postQAnswer(@RequestBody QAnswers qa, @PathVariable ("id") long id){
+		service.voegtoe(qa, id);
 	}
 }

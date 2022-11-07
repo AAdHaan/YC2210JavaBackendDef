@@ -1,10 +1,6 @@
 package com.example.YC2210JavaBackendInit;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class QAnswers {
@@ -13,8 +9,9 @@ public class QAnswers {
 	long id;
 	
 	String QAnswerText;
-	@ManyToOne
-	Question question;
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name="questionId")
+//	Question question;
 	
 	public long getId() {
 		return id;
@@ -28,10 +25,10 @@ public class QAnswers {
 	public void setQAnswerText(String qAnswerText) {
 		QAnswerText = qAnswerText;
 	}
-	public Question getQuestionText() {
-		return question;
-	}
-	public void setQuestionText(Question question) {
-		this.question = question;
-	}
+//	public Question getQuestionText() {
+//		return question;
+//	}
+//	public void setQuestionText(Question question) {
+//		this.question = question;
+//	}
 }
