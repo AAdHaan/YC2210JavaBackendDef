@@ -1,5 +1,7 @@
 package com.example.YC2210JavaBackendInit.persist;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -34,6 +36,10 @@ public class UserService {
 //		user.setPassword(hashedPassword);
 		repo.save(user);
 	//	sendVerificationEmail(user, siteURL);
+	}
+
+	public Optional<User> getUser(long id) {
+		return repo.findById(id);
 	}
 
 //    private void sendVerificationEmail(User user, String siteURL) {

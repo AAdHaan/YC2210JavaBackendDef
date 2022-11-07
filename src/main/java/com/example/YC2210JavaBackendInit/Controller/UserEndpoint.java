@@ -1,5 +1,7 @@
 package com.example.YC2210JavaBackendInit.Controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,8 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.YC2210JavaBackendInit.persist.UserService;
 import com.example.YC2210JavaBackendInit.Filter;
+import com.example.YC2210JavaBackendInit.Question;
 import com.example.YC2210JavaBackendInit.User;
 import com.example.YC2210JavaBackendInit.ExceptionHandling.EmailTooLongException;
+import com.example.YC2210JavaBackendInit.ExceptionHandling.UserDoesntExistException;
 import com.example.YC2210JavaBackendInit.ExceptionHandling.UsernameTooLongException;
 
 
@@ -20,12 +24,22 @@ public class UserEndpoint {
 	@Autowired
 	UserService service;
 
-	@GetMapping("User")
-	public String getUser() {
+	@GetMapping(value = "User/{id}")
+	public Optional<User> getUser(@PathVariable("id")long id) throws UserDoesntExistException {
 		System.out.println("we're going on an adventure");
-		return "wat een avontuur";
+		if(service.getUser(id).isPresent()) {
+			return service.getUser(id);
+		}else {
+			throw new UserDoesntExistException("User doesn't exsist in the database.");
+		}
+		
 	}
-
+//	@GetMapping(value = "Question/{id}")
+//	public String getQuestion(@PathVariable("id") long id) {
+//		Question question = service.getQuestion(id);
+//		System.out.println(question.getQuestionText() +" "+ question.getOrderNR() +" "+ question.getId());
+//		return question.getQuestionText();
+//	}
 	@PostMapping("User")
 	public void postUser(@RequestBody User user) throws EmailTooLongException, UsernameTooLongException {
 		try {
