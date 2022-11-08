@@ -26,7 +26,9 @@ public class UserService {
 	}
 	
 	public Optional<User> login(String email) {
-		return repo.findByEmail(email);
+		Optional<User> user = repo.findByEmail(email);
+		System.out.println(user);
+		return user;
 	}
 
 }

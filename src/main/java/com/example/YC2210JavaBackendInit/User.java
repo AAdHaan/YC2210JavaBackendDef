@@ -20,22 +20,6 @@ public class User {
 	@Column(length = 50, unique = true, nullable = false)
 	String email;
 	
-//	@Column(length = 64, nullable = false)
-//	private String verificationCode;
-//	private boolean enabled;
-	
-//	public String getVerificationCode() {
-//		return verificationCode;
-//	}
-//	public void setVerificationCode(String verificationCode) {
-//		this.verificationCode = verificationCode;
-//	}
-//	public boolean isEnabled() {
-//		return enabled;
-//	}
-//	public void setEnabled(boolean enabled) {
-//		this.enabled = enabled;
-//	}
 	public long getId() {
 		return id;
 	}
