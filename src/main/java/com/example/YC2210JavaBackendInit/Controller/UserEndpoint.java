@@ -1,6 +1,7 @@
 package com.example.YC2210JavaBackendInit.Controller;
 
 import java.util.Optional;
+import at.favre.lib.crypto.bcrypt.BCrypt;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,25 @@ public class UserEndpoint {
 	@Autowired
 	UserService service;
 
+	@GetMapping(value = "Login")
+	public Optional<User> getUser(@RequestBody String email, String password) throws UserDoesntExistException {
+		System.out.println("je bent ingelogd");
+		//------------------------------------------------------------------------------------------------------hier gebruiken we nu een if statment, is een try catch beter?
+		User user = new User();
+		if(service.login(email).isPresent() ) {
+			user = service.login(email).get();
+		}else {
+			System.out.println("help geen user");
+			throw new UserDoesntExistException("Email or Password doesn't exsist in the database.");
+		}
+		if( BCrypt.verifyer().verify(password.toCharArray(), user.getPassword().toCharArray()).verified) {		
+			return Optional.of(user);
+		}else {
+			throw new UserDoesntExistException("Email or Password doesn't exsist in the database.");
+		}
+	}
+	
+	
 	@GetMapping(value = "User/{id}")
 	public Optional<User> getUser(@PathVariable("id")long id) throws UserDoesntExistException {
 		System.out.println("we're going on an adventure");
@@ -33,12 +53,13 @@ public class UserEndpoint {
 			System.out.println("help geen user");
 			throw new UserDoesntExistException("User doesn't exsist in the database.");
 		}
-		
 	}
 
 	@PostMapping("User")
 	public void postUser(@RequestBody User user) throws EmailTooLongException, UsernameTooLongException {
 		try {
+			user.setPassword(BCrypt.withDefaults().hashToString(12, (user.getPassword().toCharArray())));
+			System.out.println(user.getPassword());
 			service.SaveUser(user);
 		} catch(Exception err) {
 			if(user.getEmail().length() > 50) {
@@ -50,4 +71,16 @@ public class UserEndpoint {
 		}
 		System.out.println(user.getUsername() +" "+ user.getEmail() +" "+ user.getPassword());
 	}
+	
+	
+	
+//	private static void doBcrypt(String password) {
+//        String pwHash = BCrypt.withDefaults().hashToString(12, password.toCharArray());
+//        System.out.println(password + " BCrypt: " + pwHash);
+//	      BCrypt.Result result = BCrypt.verifyer().verify("codefounders".toCharArray(), pwHash);
+//    	  System.out.println("  Matched: " + result.verified);
+//}
+	
+	
+	
 }
