@@ -14,6 +14,7 @@ import com.example.YC2210JavaBackendInit.persist.UserService;
 import com.example.YC2210JavaBackendInit.Filter;
 import com.example.YC2210JavaBackendInit.Question;
 import com.example.YC2210JavaBackendInit.User;
+import com.example.YC2210JavaBackendInit.UserLoginDTO;
 import com.example.YC2210JavaBackendInit.ExceptionHandling.EmailTooLongException;
 import com.example.YC2210JavaBackendInit.ExceptionHandling.UserDoesntExistException;
 import com.example.YC2210JavaBackendInit.ExceptionHandling.UsernameTooLongException;
@@ -26,17 +27,19 @@ public class UserEndpoint {
 	UserService service;
 
 	@GetMapping(value = "Login")
-	public Optional<User> getUser(@RequestBody String email, String password) throws UserDoesntExistException {
-		System.out.println("je bent ingelogd");
+	public Optional<User> getUser(@RequestBody UserLoginDTO dto) throws UserDoesntExistException {
 		//------------------------------------------------------------------------------------------------------hier gebruiken we nu een if statment, is een try catch beter?
 		User user = new User();
-		if(service.login(email).isPresent() ) {
-			user = service.login(email).get();
+		System.out.println(dto.getEmail() + "dit is een email");
+		if(service.login(dto.getEmail()).isPresent() ) {
+			user = service.login(dto.getEmail()).get();
 		}else {
 			System.out.println("help geen user");
 			throw new UserDoesntExistException("Email or Password doesn't exsist in the database.");
 		}
-		if( BCrypt.verifyer().verify(password.toCharArray(), user.getPassword().toCharArray()).verified) {		
+		
+		if( BCrypt.verifyer().verify(dto.getPassword().toCharArray(), user.getPassword().toCharArray()).verified) {		
+			System.out.println("je bent ingelogd");
 			return Optional.of(user);
 		}else {
 			throw new UserDoesntExistException("Email or Password doesn't exsist in the database.");
