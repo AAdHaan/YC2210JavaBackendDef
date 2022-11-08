@@ -21,13 +21,12 @@ public class QuestionEndpoint {
 	@PostMapping("Question")
 	public void postQuestion(@RequestBody Question question) {
 		service.SaveQuestion(question);
-		System.out.println(question.getQuestionText() +" "+ question.getOrderNR() +" "+ question.getId());
 	}
 		
 	@GetMapping(value = "Question/{id}")
-	public String getQuestion(@PathVariable("id") long id) {
+	public Question getQuestion(@PathVariable("id") long id) {
 		Question question = service.getQuestion(id);
-		System.out.println(question.getQuestionText() +" "+ question.getOrderNR() +" "+ question.getId());
-		return question.getQuestionText();
+		System.out.println(question.getText() +" "+ question.getOrderNR() +" "+ question.getId());
+		return question;
 	}
 }
