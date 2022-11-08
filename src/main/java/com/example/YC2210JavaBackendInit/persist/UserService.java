@@ -17,32 +17,16 @@ public class UserService {
 	@Autowired
 	UserRepository repo;
 	
-//	@Bean
-//	public BCryptPasswordEncoder bCryptPasswordEncoder() {
-//	    return new BCryptPasswordEncoder();
-//	}
-//    @Autowired
-//    private JavaMailSender mailSender;
-	
-
-
 	public void SaveUser(User user) {
-		
-
-//		String randomCode = RandomString.make(64);
-//	    user.setVerificationCode(randomCode);
-//	    user.setEnabled(false);
-//		String hashedPassword = new BCryptPasswordEncoder().encode(user.getPassword());
-//		user.setPassword(hashedPassword);
 		repo.save(user);
-	//	sendVerificationEmail(user, siteURL);
 	}
 
 	public Optional<User> getUser(long id) {
 		return repo.findById(id);
 	}
+	
+	public Optional<User> login(String email) {
+		return repo.findByEmail(email);
+	}
 
-//    private void sendVerificationEmail(User user, String siteURL) {
-//        
-//    }
 }
