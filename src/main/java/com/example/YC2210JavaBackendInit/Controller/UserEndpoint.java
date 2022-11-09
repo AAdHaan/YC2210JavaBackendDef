@@ -75,15 +75,9 @@ public class UserEndpoint {
 		System.out.println(user.getUsername() +" "+ user.getEmail() +" "+ user.getPassword());
 	}
 	
-	
-	
-//	private static void doBcrypt(String password) {
-//        String pwHash = BCrypt.withDefaults().hashToString(12, password.toCharArray());
-//        System.out.println(password + " BCrypt: " + pwHash);
-//	      BCrypt.Result result = BCrypt.verifyer().verify("codefounders".toCharArray(), pwHash);
-//    	  System.out.println("  Matched: " + result.verified);
-//}
-	
-	
+	@PostMapping("Watched/{userID}")
+	public void watchMovie(@RequestBody long movieID, @PathVariable("userID") long userID){
+	 service.watchMovie(movieID, userID);
+	}
 	
 }

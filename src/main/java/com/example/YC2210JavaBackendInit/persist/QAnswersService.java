@@ -14,11 +14,11 @@ public class QAnswersService {
 	@Autowired
 	QuestionRepository qrepo;
 	
-	public void SaveQAnswer(QAnswers qAnswers, long questionID) {
-		Question q = qrepo.findById(questionID).get();
-		//qAnswers.setQuestionText(q);
-		repo.save(qAnswers);
-	}
+//	public void SaveQAnswer(QAnswers qAnswers, long questionID) {
+//		Question q = qrepo.findById(questionID).get();
+//		//qAnswers.setQuestionText(q);
+//		repo.save(qAnswers);
+//	}
 	
 	public Iterable<QAnswers> getQAnswer(long id) {
 		Iterable<QAnswers> qanswers = repo.findAll();

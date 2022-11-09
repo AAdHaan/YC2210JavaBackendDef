@@ -8,6 +8,8 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import com.example.YC2210JavaBackendInit.BCryptPasswordEncoder;
+import com.example.YC2210JavaBackendInit.QAnswers;
+import com.example.YC2210JavaBackendInit.Question;
 import com.example.YC2210JavaBackendInit.User;
 
 import net.bytebuddy.utility.RandomString;
@@ -31,4 +33,14 @@ public class UserService {
 		return user;
 	}
 
+	public void watchMovie(long movieID, long userID) {
+		// TODO Auto-generated method stub
+			//public void saveQAnswer(QAnswers qa, long id) {
+			//long temp = repo.save(qa);
+			//long qtemp = qrepo.findById(id).get();
+			//qtemp.addAnswer(temp);
+			//repo.save(qtemp);
+		//}
+	}
+	
 }
