@@ -16,6 +16,10 @@ public class BezorgerService {
 		System.out.println("Bestelling aangekomen");
 		return repo.findAll();
 	}
-	
+
+	public void createBezorger(Bezorger bezorger) {
+		repo.save(bezorger);
+		
+	}
 
 }
