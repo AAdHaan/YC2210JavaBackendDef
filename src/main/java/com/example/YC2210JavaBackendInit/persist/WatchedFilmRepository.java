@@ -1,6 +1,4 @@
 package com.example.YC2210JavaBackendInit.persist;
-import java.util.List;
-
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 

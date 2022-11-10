@@ -1,7 +1,6 @@
 package com.example.YC2210JavaBackendInit.Controller;
 
 import java.util.Optional;
-import at.favre.lib.crypto.bcrypt.BCrypt;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,14 +9,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.YC2210JavaBackendInit.persist.UserService;
-import com.example.YC2210JavaBackendInit.Filter;
-import com.example.YC2210JavaBackendInit.Question;
 import com.example.YC2210JavaBackendInit.User;
 import com.example.YC2210JavaBackendInit.UserLoginDTO;
 import com.example.YC2210JavaBackendInit.ExceptionHandling.EmailTooLongException;
 import com.example.YC2210JavaBackendInit.ExceptionHandling.UserDoesntExistException;
 import com.example.YC2210JavaBackendInit.ExceptionHandling.UsernameTooLongException;
+import com.example.YC2210JavaBackendInit.persist.UserService;
+
+import at.favre.lib.crypto.bcrypt.BCrypt;
 
 
 @RestController
