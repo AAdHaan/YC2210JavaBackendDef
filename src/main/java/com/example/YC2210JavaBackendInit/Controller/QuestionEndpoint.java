@@ -29,4 +29,10 @@ public class QuestionEndpoint {
 		System.out.println(question.getText() +" "+ question.getOrderNR() +" "+ question.getId());
 		return question;
 	}
+
+	@GetMapping(value = "Question")
+	public Iterable<Question> getQuestions() {
+		Iterable<Question> questions = service.getQuestions();
+		return questions;
+	}
 }

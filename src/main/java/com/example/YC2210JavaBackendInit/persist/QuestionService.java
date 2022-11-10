@@ -33,4 +33,8 @@ public class QuestionService {
 		System.out.println(qa);
 		return qa;
 	}
+
+	public Iterable<Question> getQuestions() {
+		return repo.findAll();
+	}
 }
