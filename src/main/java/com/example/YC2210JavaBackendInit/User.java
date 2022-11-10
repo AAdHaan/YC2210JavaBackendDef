@@ -1,11 +1,14 @@
 package com.example.YC2210JavaBackendInit;
 
-import javax.persistence.Column;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -19,6 +22,16 @@ public class User {
 	String password;
 	@Column(length = 50, unique = true, nullable = false)
 	String email;
+	@OneToMany
+	List<WatchedFilm> watchedFilm = new ArrayList<WatchedFilm>();
+	
+	public List<WatchedFilm> getQanswers() {
+		return watchedFilm;
+	}
+
+	public void setQanswers(List<WatchedFilm> WatchedFilm) {
+		this.watchedFilm = WatchedFilm;
+	}	
 	
 	public long getId() {
 		return id;
@@ -43,5 +56,8 @@ public class User {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public void addWatchedFilm(WatchedFilm temp) {
+		watchedFilm.add(temp);
 	}
 }

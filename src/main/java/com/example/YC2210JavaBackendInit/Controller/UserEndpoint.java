@@ -1,7 +1,6 @@
 package com.example.YC2210JavaBackendInit.Controller;
 
 import java.util.Optional;
-import at.favre.lib.crypto.bcrypt.BCrypt;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,14 +9,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.YC2210JavaBackendInit.persist.UserService;
-import com.example.YC2210JavaBackendInit.Filter;
-import com.example.YC2210JavaBackendInit.Question;
 import com.example.YC2210JavaBackendInit.User;
 import com.example.YC2210JavaBackendInit.UserLoginDTO;
 import com.example.YC2210JavaBackendInit.ExceptionHandling.EmailTooLongException;
 import com.example.YC2210JavaBackendInit.ExceptionHandling.UserDoesntExistException;
 import com.example.YC2210JavaBackendInit.ExceptionHandling.UsernameTooLongException;
+import com.example.YC2210JavaBackendInit.persist.UserService;
+
+import at.favre.lib.crypto.bcrypt.BCrypt;
 
 
 @RestController
@@ -75,15 +74,9 @@ public class UserEndpoint {
 		System.out.println(user.getUsername() +" "+ user.getEmail() +" "+ user.getPassword());
 	}
 	
-	
-	
-//	private static void doBcrypt(String password) {
-//        String pwHash = BCrypt.withDefaults().hashToString(12, password.toCharArray());
-//        System.out.println(password + " BCrypt: " + pwHash);
-//	      BCrypt.Result result = BCrypt.verifyer().verify("codefounders".toCharArray(), pwHash);
-//    	  System.out.println("  Matched: " + result.verified);
-//}
-	
-	
+	@PostMapping("Watched/{userID}")
+	public void watchMovie(@RequestBody long movieID, @PathVariable("userID") long userID){
+	 service.watchMovie(movieID, userID);
+	}
 	
 }
