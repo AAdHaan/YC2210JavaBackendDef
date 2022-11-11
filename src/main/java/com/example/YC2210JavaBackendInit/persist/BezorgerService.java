@@ -11,7 +11,7 @@ public class BezorgerService {
 	@Autowired
 	BezorgerRepository repo;
 	
-	@GetMapping("BezorgerService")
+	@GetMapping("/BezorgerService")
 	public Iterable<Bezorger> bezorgen() {
 		System.out.println("Bestelling aangekomen");
 		return repo.findAll();
@@ -20,6 +20,11 @@ public class BezorgerService {
 	public void createBezorger(Bezorger bezorger) {
 		repo.save(bezorger);
 		
+	}
+
+	public Bezorger vindBezorger(Long bezorgerid) {
+		// TODO Auto-generated method stub
+		return repo.findById(bezorgerid).get();
 	}
 
 }
