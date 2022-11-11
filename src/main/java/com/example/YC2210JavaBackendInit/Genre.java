@@ -20,7 +20,17 @@ public class Genre {
 	@JsonIgnore
 	@ManyToMany()
 	private List<QAnswers> qAnswers;
-
+	
+//  actie = 0
+//	comedy = 1
+//	crime = 2
+//	documantaire = 3
+//	drama = 4
+//	feel good = 5
+//	horror = 6
+//	romantisch = 7
+//	sci-fi = 8
+//	thriller = 9
 	public long getId() {
 		return id;
 	}
