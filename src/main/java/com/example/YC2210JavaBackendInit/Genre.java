@@ -18,6 +18,7 @@ public class Genre {
 	long id;
 	int genreID;
 	@JsonIgnore
+	
 	@ManyToMany()
 	private List<QAnswers> qAnswers;
 

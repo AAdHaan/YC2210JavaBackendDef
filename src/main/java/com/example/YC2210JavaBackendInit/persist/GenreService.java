@@ -1,6 +1,8 @@
 package com.example.YC2210JavaBackendInit.persist;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,8 +18,11 @@ public class GenreService {
 	QAnswersRepository crepo;
 
 	public Iterable<Genre> getGenre(long id) {
-		Iterable<Genre> genres = repo.findAll();
-		repo.findById(id);
+		QAnswers Qanswers = crepo.findById(id).get();
+		List<QAnswers> QanswerList= new ArrayList<QAnswers>();
+		QanswerList.add(Qanswers);
+		List<Genre> genres = repo.findAllByqAnswersIn(QanswerList);
+		//Iterable<Genre> genres = null;
 		return genres;
 	}
 
