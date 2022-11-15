@@ -26,5 +26,6 @@ public class BezorgerService {
 		// TODO Auto-generated method stub
 		return repo.findById(bezorgerid).get();
 	}
+	
 
 }

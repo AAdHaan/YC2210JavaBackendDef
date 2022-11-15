@@ -13,6 +13,7 @@ public class Bezorger {
 	long id;
 	
 	String naam;
+	String password;
 	int leeftijd;
 	Boolean beschikbaar;
 	public long getId() {
@@ -27,6 +28,12 @@ public class Bezorger {
 	public void setNaam(String naam) {
 		this.naam = naam;
 	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public int getLeeftijd() {
 		return leeftijd;
 	}
@@ -40,6 +47,5 @@ public class Bezorger {
 		this.beschikbaar = beschikbaar;
 	}
 
-	
 	
 }
