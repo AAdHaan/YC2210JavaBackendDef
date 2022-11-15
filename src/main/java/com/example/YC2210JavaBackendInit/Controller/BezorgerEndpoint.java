@@ -26,7 +26,7 @@ public class BezorgerEndpoint {
 	
 	@PostMapping("/Bezorger")
 	public void postBezorger(@RequestBody Bezorger bezorger) {
-		System.out.println("postWerkt" + bezorger.getNaam());
+		System.out.println("postWerkt" + " " + bezorger.getNaam());
 		service.createBezorger(bezorger);
 	}
 	
@@ -35,8 +35,44 @@ public class BezorgerEndpoint {
 		return service.vindBezorger(bezorgerid);
 	}
 	
+	@GetMapping("/Gegevens/{Username}/{Password}")	
+	public String bezorgerGegevens(@PathVariable("Username") String bezorgerNaam, @PathVariable("Password") String bezorgerWachtwoord)	{
+	System.out.println(bezorgerNaam);
+		return "abc";
+		
+	}
 	
 	
 	
+//	 // A Java Program to generate OTP (One Time Password)
+//	static class GFG{
+//	 
+//	// A Function to generate a unique OTP everytime
+//	static String generateOTP(int len)
+//	{
+//	    // All possible characters of my OTP
+//	    String str = "abcdefghijklmnopqrstuvwxyzABCD"
+//	            +"EFGHIJKLMNOPQRSTUVWXYZ0123456789";
+//	    int n = str.length();
+//	 
+//	    // String to hold my OTP
+//	    String OTP="";
+//	 
+//	    for (int i = 1; i <= len; i++)
+//	        OTP += (str.charAt((int) ((Math.random()*10) % n)));
+//	 
+//	    return(OTP);
+//	}
+//	 
+//	// Driver code
+//	public static void main(String[] args)
+//	{
+//	 
+//	    // Declare the length of OTP
+//	    int len = 6;
+//	    System.out.printf("Your OTP is - %s", generateOTP(len));
+//	}
+//	}
+//	
 
 }
