@@ -23,8 +23,16 @@ public class BezorgerService {
 	}
 
 	public Bezorger vindBezorger(Long bezorgerid) {
-		// TODO Auto-generated method stub
 		return repo.findById(bezorgerid).get();
+	}
+	
+	public void createBezorgergegevens(Bezorger bezorgerGegevens) {
+		repo.save(bezorgerGegevens);
+	}
+
+	public void verwijderBezorger(Long bezorgerid) {
+		repo.deleteById(bezorgerid);
+		
 	}
 	
 

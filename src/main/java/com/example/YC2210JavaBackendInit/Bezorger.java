@@ -1,5 +1,6 @@
 package com.example.YC2210JavaBackendInit;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +17,8 @@ public class Bezorger {
 	String password;
 	int leeftijd;
 	Boolean beschikbaar;
+	@Column(length = 50, unique = true, nullable = false)
+	String email;
 	public long getId() {
 		return id;
 	}
@@ -45,6 +48,12 @@ public class Bezorger {
 	}
 	public void setBeschikbaar(Boolean beschikbaar) {
 		this.beschikbaar = beschikbaar;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	
