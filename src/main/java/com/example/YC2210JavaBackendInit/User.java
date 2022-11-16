@@ -1,11 +1,14 @@
 package com.example.YC2210JavaBackendInit;
 
-import javax.persistence.Column;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -15,27 +18,21 @@ public class User {
 	
 	@Column(length = 20, nullable = false)
 	String username;
-	@Column(length = 50, nullable = false)
+	@Column(length = 100, nullable = false)
 	String password;
 	@Column(length = 50, unique = true, nullable = false)
 	String email;
+	@OneToMany
+	List<WatchedFilm> watchedFilm = new ArrayList<WatchedFilm>();
 	
-//	@Column(length = 64, nullable = false)
-//	private String verificationCode;
-//	private boolean enabled;
+	public List<WatchedFilm> getQanswers() {
+		return watchedFilm;
+	}
+
+	public void setQanswers(List<WatchedFilm> WatchedFilm) {
+		this.watchedFilm = WatchedFilm;
+	}	
 	
-//	public String getVerificationCode() {
-//		return verificationCode;
-//	}
-//	public void setVerificationCode(String verificationCode) {
-//		this.verificationCode = verificationCode;
-//	}
-//	public boolean isEnabled() {
-//		return enabled;
-//	}
-//	public void setEnabled(boolean enabled) {
-//		this.enabled = enabled;
-//	}
 	public long getId() {
 		return id;
 	}
@@ -59,5 +56,8 @@ public class User {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public void addWatchedFilm(WatchedFilm temp) {
+		watchedFilm.add(temp);
 	}
 }

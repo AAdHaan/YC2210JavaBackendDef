@@ -11,6 +11,9 @@ import com.example.YC2210JavaBackendInit.Question;
 public class QuestionService {
 	@Autowired
 	QuestionRepository repo;
+
+	@Autowired
+	QAnswersRepository qa_repo;
 	
 	public void SaveQuestion(Question question) {
 		repo.save(question);
@@ -23,5 +26,15 @@ public class QuestionService {
 			return question.get();
 		}
 		return null;
+	}
+
+	public Optional<Question> getQuestionsWithAnswers(){
+		Optional<Question> qa = repo.findById(1l);
+		System.out.println(qa);
+		return qa;
+	}
+
+	public Iterable<Question> getQuestions() {
+		return repo.findAll();
 	}
 }

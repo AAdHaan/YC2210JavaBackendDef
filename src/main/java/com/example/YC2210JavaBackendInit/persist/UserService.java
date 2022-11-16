@@ -3,46 +3,37 @@ package com.example.YC2210JavaBackendInit.persist;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-import com.example.YC2210JavaBackendInit.BCryptPasswordEncoder;
 import com.example.YC2210JavaBackendInit.User;
-
-import net.bytebuddy.utility.RandomString;
 
 @Service
 public class UserService {
 	@Autowired
 	UserRepository repo;
 	
-//	@Bean
-//	public BCryptPasswordEncoder bCryptPasswordEncoder() {
-//	    return new BCryptPasswordEncoder();
-//	}
-//    @Autowired
-//    private JavaMailSender mailSender;
-	
-
-
 	public void SaveUser(User user) {
-		
-
-//		String randomCode = RandomString.make(64);
-//	    user.setVerificationCode(randomCode);
-//	    user.setEnabled(false);
-//		String hashedPassword = new BCryptPasswordEncoder().encode(user.getPassword());
-//		user.setPassword(hashedPassword);
 		repo.save(user);
-	//	sendVerificationEmail(user, siteURL);
 	}
 
 	public Optional<User> getUser(long id) {
 		return repo.findById(id);
 	}
+	
+	public Optional<User> login(String email) {
+		Optional<User> user = repo.findByEmail(email);
+		System.out.println(user);
+		return user;
+	}
 
-//    private void sendVerificationEmail(User user, String siteURL) {
-//        
-//    }
+	public void watchMovie(long movieID, long userID) {
+		// TODO Auto-generated method stub
+			//public void saveQAnswer(QAnswers qa, long id) {
+			//long temp = repo.save(qa);
+			//long qtemp = qrepo.findById(id).get();
+			//qtemp.addAnswer(temp);
+			//repo.save(qtemp);
+		//}
+	}
+	
 }

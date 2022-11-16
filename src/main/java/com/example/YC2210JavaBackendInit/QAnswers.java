@@ -1,20 +1,30 @@
 package com.example.YC2210JavaBackendInit;
 
+import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class QAnswers {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	long id;
-	
-	String QAnswerText;
-	//@ManyToOne
-	//Question question;
+	private long id;
+	@Column(nullable = false)
+	private String text;
+	@JsonIgnore
+	@ManyToOne(optional = false)
+	private Question question;
+	@ManyToMany(mappedBy = "qAnswers")
+	private List<Genre> genres;
 	
 	public long getId() {
 		return id;
@@ -22,16 +32,24 @@ public class QAnswers {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getQAnswerText() {
-		return QAnswerText;
+	public String getText() {
+		return this.text;
 	}
-	public void setQAnswerText(String qAnswerText) {
-		QAnswerText = qAnswerText;
+	public void setText(String text) {
+		this.text = text;
 	}
-//	public Question getQuestionText() {
-//		return question;
-//	}
-//	public void setQuestionText(Question question) {
-//		this.question = question;
-//	}
+	public Question getQuestion() {
+		return question;
+	}
+	public void setQuestion(Question question) {
+		this.question = question;
+	}
+	public List<Genre> getGenres() {
+		return genres;
+	}
+	public void setGenres(List<Genre> genres) {
+		this.genres = genres;
+	}
+	
+
 }
