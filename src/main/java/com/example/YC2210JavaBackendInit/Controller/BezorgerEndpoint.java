@@ -14,36 +14,34 @@ import com.example.YC2210JavaBackendInit.persist.BezorgerService;
 public class BezorgerEndpoint {
 	@Autowired
 	BezorgerService service;
-	
-	
+
 	@GetMapping("/AlleBezorgers")
-	public Iterable<Bezorger> getBezorger(){
+	public Iterable<Bezorger> getBezorger() {
 		System.out.println("Hij doet het");
 		service.bezorgen();
 		return service.bezorgen();
-		
+
 	}
-	
+
 	@PostMapping("/Bezorger")
 	public void postBezorger(@RequestBody Bezorger bezorger) {
 		System.out.println("postWerkt" + " " + bezorger.getNaam());
 		service.createBezorger(bezorger);
 	}
-	
+
 	@GetMapping("/Bezorger/{bid}")
 	public Bezorger findBezorger(@PathVariable("bid") Long bezorgerid) {
 		return service.vindBezorger(bezorgerid);
 	}
-	
-	@GetMapping("/Gegevens/{Username}/{Password}")	
-	public String bezorgerGegevens(@PathVariable("Username") String bezorgerNaam, @PathVariable("Password") String bezorgerWachtwoord)	{
-	System.out.println(bezorgerNaam);
+
+	@GetMapping("/Gegevens/{Username}/{Password}")
+	public String bezorgerGegevens(@PathVariable("Username") String bezorgerNaam,
+			@PathVariable("Password") String bezorgerWachtwoord) {
+		System.out.println(bezorgerNaam);
 		return "abc";
-		
+
 	}
-	
-	
-	
+
 //	 // A Java Program to generate OTP (One Time Password)
 //	static class GFG{
 //	 

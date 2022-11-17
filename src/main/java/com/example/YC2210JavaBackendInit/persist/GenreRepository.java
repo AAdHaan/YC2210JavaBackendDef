@@ -10,9 +10,5 @@ import com.example.YC2210JavaBackendInit.QAnswers;
 
 @Component
 public interface GenreRepository extends CrudRepository<Genre, Long> {
-	
-	 //List<Genre> findByQAnswers(QAnswers Qanswer);
-	 List<Genre> findAllByqAnswersIn(List<QAnswers> qAnswers);
-	 //findAllByHashtagsInAndDateIsGreaterThanEqual
-	
+	List<Genre> findAllByqAnswersIn(List<QAnswers> qAnswers);
 }

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
 import com.example.YC2210JavaBackendInit.QAnswers;
 
 @Component
-public interface QAnswersRepository extends CrudRepository<QAnswers, Long>{
-	
+public interface QAnswersRepository extends CrudRepository<QAnswers, Long> {
+
 }

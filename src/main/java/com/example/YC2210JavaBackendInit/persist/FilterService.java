@@ -9,8 +9,8 @@ import com.example.YC2210JavaBackendInit.Filter;
 public class FilterService {
 	@Autowired
 	FilterRepository repo;
-	
+
 	public void SaveFilter(Filter filter) {
 		repo.save(filter);
-	}	
+	}
 }

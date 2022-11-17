@@ -14,21 +14,21 @@ public class QuestionService {
 
 	@Autowired
 	QAnswersRepository qa_repo;
-	
+
 	public void SaveQuestion(Question question) {
 		repo.save(question);
 	}
-	
+
 	public Question getQuestion(long id) {
 		Optional<Question> question = repo.findById(id);
-		
-		if(question.isPresent()) {
+
+		if (question.isPresent()) {
 			return question.get();
 		}
 		return null;
 	}
 
-	public Optional<Question> getQuestionsWithAnswers(){
+	public Optional<Question> getQuestionsWithAnswers() {
 		Optional<Question> qa = repo.findById(1l);
 		System.out.println(qa);
 		return qa;

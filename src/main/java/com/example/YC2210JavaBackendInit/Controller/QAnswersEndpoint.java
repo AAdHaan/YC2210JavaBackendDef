@@ -1,4 +1,5 @@
 package com.example.YC2210JavaBackendInit.Controller;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +16,7 @@ public class QAnswersEndpoint {
 	QAnswersService service;
 
 	@PostMapping(value = "QAnswers/{questionId}")
-	public void postQAnswer(@RequestBody QAnswers qa, @PathVariable ("questionId") long id){
+	public void postQAnswer(@RequestBody QAnswers qa, @PathVariable("questionId") long id) {
 		service.saveQAnswer(qa, id);
 	}
 

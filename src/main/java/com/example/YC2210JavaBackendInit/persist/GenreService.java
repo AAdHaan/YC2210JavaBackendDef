@@ -19,10 +19,9 @@ public class GenreService {
 
 	public Iterable<Genre> getGenre(long id) {
 		QAnswers Qanswers = crepo.findById(id).get();
-		List<QAnswers> QanswerList= new ArrayList<QAnswers>();
+		List<QAnswers> QanswerList = new ArrayList<QAnswers>();
 		QanswerList.add(Qanswers);
 		List<Genre> genres = repo.findAllByqAnswersIn(QanswerList);
-		//Iterable<Genre> genres = null;
 		return genres;
 	}
 

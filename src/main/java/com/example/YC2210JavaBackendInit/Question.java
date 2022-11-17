@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Question {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	@Column(nullable = false)
 	private String text;
@@ -19,28 +19,35 @@ public class Question {
 	private int orderNR;
 	@OneToMany(mappedBy = "question")
 	private List<QAnswers> qanswers;
-	
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
-	}	
+	}
+
 	public String getText() {
 		return text;
 	}
+
 	public void setText(String text) {
 		this.text = text;
 	}
+
 	public int getOrderNR() {
 		return orderNR;
 	}
+
 	public void setOrderNR(int orderNR) {
 		this.orderNR = orderNR;
 	}
+
 	public List<QAnswers> getQanswers() {
 		return qanswers;
 	}
+
 	public void setQanswers(List<QAnswers> qanswers) {
 		this.qanswers = qanswers;
 	}

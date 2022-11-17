@@ -10,7 +10,7 @@ import com.example.YC2210JavaBackendInit.Bezorger;
 public class BezorgerService {
 	@Autowired
 	BezorgerRepository repo;
-	
+
 	@GetMapping("/BezorgerService")
 	public Iterable<Bezorger> bezorgen() {
 		System.out.println("Bestelling aangekomen");
@@ -19,13 +19,12 @@ public class BezorgerService {
 
 	public void createBezorger(Bezorger bezorger) {
 		repo.save(bezorger);
-		
+
 	}
 
 	public Bezorger vindBezorger(Long bezorgerid) {
 		// TODO Auto-generated method stub
 		return repo.findById(bezorgerid).get();
 	}
-	
 
 }

@@ -8,9 +8,9 @@ import javax.persistence.Id;
 @Entity
 public class Filter {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	long id;
-	
+
 	String FilterText;
 
 	public long getId() {

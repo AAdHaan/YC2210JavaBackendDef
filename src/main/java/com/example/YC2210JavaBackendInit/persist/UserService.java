@@ -24,16 +24,5 @@ public class UserService {
 		Optional<User> user = repo.findByEmail(email);
 		System.out.println(user);
 		return user;
-	}
-
-	public void watchMovie(long movieID, long userID) {
-		// TODO Auto-generated method stub
-			//public void saveQAnswer(QAnswers qa, long id) {
-			//long temp = repo.save(qa);
-			//long qtemp = qrepo.findById(id).get();
-			//qtemp.addAnswer(temp);
-			//repo.save(qtemp);
-		//}
-	}
-	
+	}	
 }

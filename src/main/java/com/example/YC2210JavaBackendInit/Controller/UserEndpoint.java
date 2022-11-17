@@ -2,7 +2,6 @@ package com.example.YC2210JavaBackendInit.Controller;
 
 import java.util.Optional;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,43 +20,39 @@ import com.example.YC2210JavaBackendInit.persist.UserService;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.example.YC2210JavaBackendInit.persist.EmailService;
 
-
-
 @RestController
 public class UserEndpoint {
 	@Autowired
 	UserService service;
-	
+
 	@Autowired
 	private EmailService emailService;
 
 	@GetMapping(value = "Login")
 	public Optional<User> getUser(@RequestBody UserLoginDTO dto) throws UserDoesntExistException {
-		//------------------------------------------------------------------------------------------------------hier gebruiken we nu een if statment, is een try catch beter?
 		User user = new User();
 		System.out.println(dto.getEmail() + "dit is een email");
-		if(service.login(dto.getEmail()).isPresent() ) {
+		if (service.login(dto.getEmail()).isPresent()) {
 			user = service.login(dto.getEmail()).get();
-		}else {
+		} else {
 			System.out.println("help geen user");
 			throw new UserDoesntExistException("Email or Password doesn't exsist in the database.");
 		}
-		
-		if( BCrypt.verifyer().verify(dto.getPassword().toCharArray(), user.getPassword().toCharArray()).verified) {		
+
+		if (BCrypt.verifyer().verify(dto.getPassword().toCharArray(), user.getPassword().toCharArray()).verified) {
 			System.out.println("je bent ingelogd");
 			return Optional.of(user);
-		}else {
+		} else {
 			throw new UserDoesntExistException("Email or Password doesn't exsist in the database.");
 		}
 	}
-	
-	
+
 	@GetMapping(value = "User/{id}")
-	public Optional<User> getUser(@PathVariable("id")long id) throws UserDoesntExistException {
+	public Optional<User> getUser(@PathVariable("id") long id) throws UserDoesntExistException {
 		System.out.println("we're going on an adventure");
-		if(service.getUser(id).isPresent()) {
+		if (service.getUser(id).isPresent()) {
 			return service.getUser(id);
-		}else {
+		} else {
 			System.out.println("help geen user");
 			throw new UserDoesntExistException("User doesn't exsist in the database.");
 		}
@@ -69,21 +64,16 @@ public class UserEndpoint {
 			user.setPassword(BCrypt.withDefaults().hashToString(12, (user.getPassword().toCharArray())));
 			System.out.println(user.getPassword());
 			service.SaveUser(user);
-			this.emailService.sendSimpleMessage("to@demo.nl", "Netflix and Grill","Welkom " + user.getUsername() + "je,\n\nJe bent geregistreerd bij Netflix and Grill, veel kijk plezier en eet smakelijk!\nMet vriendelijke groet,\n\nHet Netflix and Grill team");
-		} catch(Exception err) {
-			if(user.getEmail().length() > 50) {
+			this.emailService.sendSimpleMessage("to@demo.nl", "Netflix and Grill", "Welkom " + user.getUsername()
+					+ "je,\n\nJe bent geregistreerd bij Netflix and Grill, veel kijk plezier en eet smakelijk!\nMet vriendelijke groet,\n\nHet Netflix and Grill team");
+		} catch (Exception err) {
+			if (user.getEmail().length() > 50) {
 				throw new EmailTooLongException("Email is too long.", err);
 			}
-			if(user.getUsername().length() > 20) {
+			if (user.getUsername().length() > 20) {
 				throw new UsernameTooLongException("Username is too long.", err);
 			}
 		}
-		System.out.println(user.getUsername() +" "+ user.getEmail() +" "+ user.getPassword());
+		System.out.println(user.getUsername() + " " + user.getEmail() + " " + user.getPassword());
 	}
-	
-	@PostMapping("Watched/{userID}")
-	public void watchMovie(@RequestBody long movieID, @PathVariable("userID") long userID){
-	 service.watchMovie(movieID, userID);
-	}
-	
 }

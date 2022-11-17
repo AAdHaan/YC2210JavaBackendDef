@@ -10,9 +10,9 @@ import javax.persistence.Id;
 public class WatchedFilm {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	long id;
-		
+
 	@Column(nullable = false)
 	long movieID;
 

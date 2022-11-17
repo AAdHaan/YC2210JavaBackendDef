@@ -18,10 +18,10 @@ public class Genre {
 	long id;
 	int genreID;
 	@JsonIgnore
-	
+
 	@ManyToMany()
 	private List<QAnswers> qAnswers;
-	
+
 //  actie = 0
 //	comedy = 1
 //	crime = 2

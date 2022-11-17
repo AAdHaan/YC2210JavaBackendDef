@@ -25,23 +25,24 @@ public class GenreCalculatorEndpoint {
 	@PostMapping(value = "GenreCalc")
 	public GenreTripleDTO postGenreCalc(@RequestBody long[] qAnswers) {
 		Stack<Integer> genreList = new Stack<Integer>();
-		int[][] genreFrequencyList = { { 0, 0 }, { 1, 0 }, { 2, 0 }, { 3, 0 }, { 4, 0 }, { 5, 0 }, { 6, 0 }, { 7, 0 },{ 8, 0 }, { 9, 0 } };
+		int[][] genreFrequencyList = { { 0, 0 }, { 1, 0 }, { 2, 0 }, { 3, 0 }, { 4, 0 }, { 5, 0 }, { 6, 0 }, { 7, 0 },
+				{ 8, 0 }, { 9, 0 } };
 		GenreTripleDTO triple = new GenreTripleDTO();
-		
+
 		for (long Ans : qAnswers) {
 			Iterable<Genre> qAnswGenre = service.getGenre(Ans);
-			
+
 			for (Genre genre : qAnswGenre) {
 				genreList.add(genre.getGenreID());
 			}
 		}
-		
+
 		for (int genreID : genreList) {
 			genreFrequencyList[genreID][1]++;
 		}
-		
+
 		Arrays.sort(genreFrequencyList, Comparator.comparing(o -> o[1]));
-		int[] tripleint = {genreFrequencyList[9][0], genreFrequencyList[8][0],genreFrequencyList[7][0]};
+		int[] tripleint = { genreFrequencyList[9][0], genreFrequencyList[8][0], genreFrequencyList[7][0] };
 		triple.setGenres(tripleint);
 		return triple;
 	}

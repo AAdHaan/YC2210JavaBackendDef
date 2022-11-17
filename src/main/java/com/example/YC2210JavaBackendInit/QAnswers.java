@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class QAnswers {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	@Column(nullable = false)
 	private String text;
@@ -25,31 +25,37 @@ public class QAnswers {
 	private Question question;
 	@ManyToMany(mappedBy = "qAnswers")
 	private List<Genre> genres;
-	
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public String getText() {
 		return this.text;
 	}
+
 	public void setText(String text) {
 		this.text = text;
 	}
+
 	public Question getQuestion() {
 		return question;
 	}
+
 	public void setQuestion(Question question) {
 		this.question = question;
 	}
+
 	public List<Genre> getGenres() {
 		return genres;
 	}
+
 	public void setGenres(List<Genre> genres) {
 		this.genres = genres;
 	}
-	
 
 }

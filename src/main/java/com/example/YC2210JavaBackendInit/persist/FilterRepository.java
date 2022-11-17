@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
 import com.example.YC2210JavaBackendInit.Filter;
 
 @Component
-public interface FilterRepository extends CrudRepository<Filter, Long>{ 
+public interface FilterRepository extends CrudRepository<Filter, Long> {
 
 }

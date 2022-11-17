@@ -1,4 +1,5 @@
 package com.example.YC2210JavaBackendInit.Controller;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,17 +9,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.YC2210JavaBackendInit.Filter;
 import com.example.YC2210JavaBackendInit.persist.FilterService;
 
-
 @RestController
 public class FilterEndpoint {
 	@Autowired
 	FilterService service;
-	
+
 	@GetMapping("Filter")
 	public String getFilter() {
 		return "wat een avontuur";
 	}
-	
+
 	@PostMapping("Filter")
 	public void postFilter(@RequestBody Filter filter) {
 		service.SaveFilter(filter);

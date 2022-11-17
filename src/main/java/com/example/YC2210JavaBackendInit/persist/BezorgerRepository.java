@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
 import com.example.YC2210JavaBackendInit.Bezorger;
 
 @Component
-public interface BezorgerRepository extends CrudRepository<Bezorger, Long>{ 
+public interface BezorgerRepository extends CrudRepository<Bezorger, Long> {
 
 }
