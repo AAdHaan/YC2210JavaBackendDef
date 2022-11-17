@@ -27,7 +27,6 @@ public class UserEndpoint {
 
 	@GetMapping(value = "Login")
 	public Optional<User> getUser(@RequestBody UserLoginDTO dto) throws UserDoesntExistException {
-		//------------------------------------------------------------------------------------------------------hier gebruiken we nu een if statment, is een try catch beter?
 		User user = new User();
 		System.out.println(dto.getEmail() + "dit is een email");
 		if(service.login(dto.getEmail()).isPresent() ) {
