@@ -2,7 +2,9 @@ package com.example.YC2210JavaBackendInit.Controller;
 
 import java.util.Optional;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,17 +19,20 @@ import com.example.YC2210JavaBackendInit.ExceptionHandling.UsernameTooLongExcept
 import com.example.YC2210JavaBackendInit.persist.UserService;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
+import com.example.YC2210JavaBackendInit.persist.EmailService;
+
 
 
 @RestController
-
 public class UserEndpoint {
 	@Autowired
 	UserService service;
+	
+	@Autowired
+	private EmailService emailService;
 
 	@GetMapping(value = "Login")
 	public Optional<User> getUser(@RequestBody UserLoginDTO dto) throws UserDoesntExistException {
-		//------------------------------------------------------------------------------------------------------hier gebruiken we nu een if statment, is een try catch beter?
 		User user = new User();
 		System.out.println(dto.getEmail() + "dit is een email");
 		if(service.login(dto.getEmail()).isPresent() ) {
@@ -63,6 +68,7 @@ public class UserEndpoint {
 			user.setPassword(BCrypt.withDefaults().hashToString(12, (user.getPassword().toCharArray())));
 			System.out.println(user.getPassword());
 			service.SaveUser(user);
+			this.emailService.sendSimpleMessage("to@demo.nl", "Netflix and Grill","Welkom " + user.getUsername() + "je,\n\nJe bent geregistreerd bij Netflix and Grill, veel kijk plezier en eet smakelijk!\nMet vriendelijke groet,\n\nHet Netflix and Grill team");
 		} catch(Exception err) {
 			if(user.getEmail().length() > 50) {
 				throw new EmailTooLongException("Email is too long.", err);

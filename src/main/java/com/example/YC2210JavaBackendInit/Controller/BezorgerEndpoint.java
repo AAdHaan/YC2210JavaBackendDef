@@ -47,6 +47,11 @@ public class BezorgerEndpoint {
 		service.verwijderBezorger(bezorgerid);
 	}
 	
+	@DeleteMapping("verwijderBezorger/{bid}")
+	public void verwijderBezorger(@PathVariable("bid") long bezorgerid) {
+		service.verwijderBezorger(bezorgerid);
+	}
+	
 	
 	
 //	 // A Java Program to generate OTP (One Time Password)
