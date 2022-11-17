@@ -36,11 +36,10 @@ public class BezorgerEndpoint {
 		return service.vindBezorger(bezorgerid);
 	}
 	
-	@GetMapping("/Gegevens/{Username}/{Password}")	
-	public String bezorgerGegevens(@PathVariable("Username") String bezorgerNaam, @PathVariable("Password") String bezorgerWachtwoord)	{
-	System.out.println(bezorgerNaam);
+	@GetMapping("/Gegevens/{Email}/{Password}")	
+	public String bezorgerGegevens(@PathVariable("Email") String bezorgerEmail, @PathVariable("Password") String bezorgerWachtwoord){
+	System.out.println(bezorgerEmail);
 		return "abc";
-		
 	}
 	
 	@DeleteMapping("verwijderBezorger/{bid}")

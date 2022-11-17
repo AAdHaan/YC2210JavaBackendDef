@@ -19,7 +19,6 @@ public class BezorgerService {
 
 	public void createBezorger(Bezorger bezorger) {
 		repo.save(bezorger);
-		
 	}
 
 	public Bezorger vindBezorger(Long bezorgerid) {
@@ -32,7 +31,6 @@ public class BezorgerService {
 
 	public void verwijderBezorger(Long bezorgerid) {
 		repo.deleteById(bezorgerid);
-		
 	}
 	
 
