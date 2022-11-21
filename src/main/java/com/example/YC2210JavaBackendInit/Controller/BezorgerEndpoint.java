@@ -41,12 +41,7 @@ public class BezorgerEndpoint {
 	System.out.println(bezorgerEmail);
 		return "abc";
 	}
-	
-	@DeleteMapping("verwijderBezorger/{bid}")
-	public void verwijderBezorger(@PathVariable("bid") long bezorgerid) {
-		service.verwijderBezorger(bezorgerid);
-	}
-	
+
 	@DeleteMapping("verwijderBezorger/{bid}")
 	public void verwijderBezorger(@PathVariable("bid") long bezorgerid) {
 		service.verwijderBezorger(bezorgerid);
