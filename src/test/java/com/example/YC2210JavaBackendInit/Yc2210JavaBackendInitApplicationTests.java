@@ -7,14 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class Yc2210JavaBackendInitApplicationTests {
-
-	@Test
-	void contextLoads() {
-	
-		assertEquals(1,1);
-	
-	}
-	
-	
-
+//	@Test
+//	void contextLoads() {
+//		assertEquals(1,1);
+//	}
 }
