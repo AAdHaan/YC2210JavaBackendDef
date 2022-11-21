@@ -31,7 +31,7 @@ public class UserEndpoint {
 	@Autowired
 	private EmailService emailService;
 
-	@GetMapping(value = "Login")
+	@PostMapping(value = "Login")
 	public Optional<User> getUser(@RequestBody UserLoginDTO dto) throws UserDoesntExistException {
 		User user = new User();
 		System.out.println(dto.getEmail() + "dit is een email");
